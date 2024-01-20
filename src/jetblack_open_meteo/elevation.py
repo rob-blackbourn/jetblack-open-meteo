@@ -9,7 +9,7 @@ from .utils import (
 )
 
 
-def prepare_weather_forecast_request(
+def prepare_elevation_request(
         coordinate: Union[Coordinate, Sequence[Coordinate]],
         apikey: Optional[str] = None
 ) -> Tuple[str, Mapping[str, str]]:

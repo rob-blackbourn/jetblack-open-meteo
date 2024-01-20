@@ -61,7 +61,7 @@ CurrentCondition = Literal[
 ]
 
 
-def prepare_weather_forecast_request(
+def prepare_marine_forecast_request(
         coordinate: Union[Coordinate, Sequence[Coordinate]],
         hourly: Optional[Sequence[Hourly]] = None,
         daily: Optional[Sequence[Daily]] = None,

@@ -36,47 +36,22 @@ EnsembleModels = Literal[
     'bom_access_global_ensemble'
 ]
 
-Hourly = Literal[
-    'temperature_2m',
-    'relative_humidity_2m',
-    'dew_point_2m',
-    'apparent_temperature',
-    'pressure_msl',
-    'surface_pressure',
-    'cloud_cover',
-    'wind_speed_10m',
-    'wind_speed_80m',
-    'wind_speed_120m',
-    'wind_direction_10m',
-    'wind_direction_80m',
-    'wind_direction_120m',
-    'wind_gusts_10m',
-    'shortwave_radiation',
-    'direct_radiation',
-    'direct_normal_irradiance',
-    'diffuse_radiation',
-    'sunshine_duration',
-    'vapour_pressure_deficit',
-    'evapotranspiration',
-    'et0_fao_evapotranspiration',
-    'weather_code',
-    'precipitation',
-    'snowfall',
-    'rain',
-    'weather_code',
-    'snow_depth',
-    'freezing_level_height',
-    'visibility',
-    'cape',
-    'surface_temperature',
-    'soil_temperature_0_to_10cm',
-    'soil_temperature_10_to_40cm',
-    'soil_temperature_40_to_100cm',
-    'soil_temperature_100_to_200cm',
-    'soil_moisture_0_to_10cm',
-    'soil_moisture_10_to_40cm',
-    'soil_moisture_40_to_100cm',
-    'soil_moisture_100_to_200cm',
+Daily = Literal[
+    'temperature_2m_max'
+    'temperature_2m_min'
+    'temperature_2m_mean',
+    'cloud_cover_mean',
+    'relative_humidity_2m_max'
+    'relative_humidity_2m_min'
+    'relative_humidity_2m_mean',
+    'soil_moisture_0_to_10cm_mean',
+    'precipitation_sum',
+    'rain_sum',
+    'snowfall_sum',
+    'wind_speed_10m_mean'
+    'wind_speed_10m_max',
+    'pressure_msl_mean',
+    'shortwave_radiation_sum'
 ]
 
 
@@ -84,7 +59,7 @@ def prepare_climate_change_request(
         coordinate: Union[Coordinate, Sequence[Coordinate]],
         models: Optional[Sequence[EnsembleModels]] = None,
         elevation: Optional[Number] = None,
-        hourly: Optional[Sequence[Hourly]] = None,
+        daily: Optional[Sequence[Daily]] = None,
         temperature_unit: Optional[TemperatureUnit] = None,
         wind_speed_unit: Optional[WindSpeedUnit] = None,
         precipitation_unit: Optional[PrecipitationUnit] = None,
@@ -114,7 +89,7 @@ def prepare_climate_change_request(
         'longitude': ','.join([str(longitude) for _, longitude in coordinate]),
         'models': optional_string_array_to_param(models),
         'elevation': optional_number_to_param(elevation),
-        'hourly': optional_string_array_to_param(hourly),
+        'daily': optional_string_array_to_param(daily),
         'temperature_unit': temperature_unit,
         'wind_speed_unit': wind_speed_unit,
         'precipitation_unit': precipitation_unit,

@@ -70,6 +70,26 @@ Hourly = Literal[
     'soil_moisture_9_to_27cm',
     'soil_moisture_27_to_81cm',
     'is_day',
+
+    # Additional
+    'uv_index',
+    'uv_index_clear_sky',
+    'is_day',
+    'cape',
+    'freezing_level_height',
+    'sunshine_duration',
+
+    # Solar radiation
+    'shortwave_radiation',
+    'direct_radiation',
+    'diffuse_radiation',
+    'direct_normal_irradiance',
+    'terrestrial_radiation',
+    'shortwave_radiation_instant',
+    'direct_radiation_instant',
+    'diffuse_radiation_instant',
+    'direct_normal_irradiance_instant',
+    'terrestrial_radiation_instant',
 ]
 
 Daily = Literal[

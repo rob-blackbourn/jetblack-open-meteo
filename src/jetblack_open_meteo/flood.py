@@ -28,7 +28,7 @@ Daily = Literal[
 ]
 
 
-def prepare_weather_forecast_request(
+def prepare_flood_request(
         coordinate: Union[Coordinate, Sequence[Coordinate]],
         daily: Optional[Sequence[Daily]] = None,
         timeformat: Optional[TimeFormat] = None,

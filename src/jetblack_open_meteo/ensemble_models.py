@@ -79,7 +79,7 @@ Hourly = Literal[
 ]
 
 
-def prepare_weather_forecast_request(
+def prepare_ensemble_models_request(
         coordinate: Union[Coordinate, Sequence[Coordinate]],
         models: Optional[Sequence[Models]] = None,
         elevation: Optional[Number] = None,
