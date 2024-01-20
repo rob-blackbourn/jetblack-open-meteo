@@ -1,4 +1,4 @@
-"""Forecast"""
+"""Weather Forecast"""
 
 from datetime import date, datetime
 from typing import Literal, Mapping, Optional, Sequence, Tuple, Union
