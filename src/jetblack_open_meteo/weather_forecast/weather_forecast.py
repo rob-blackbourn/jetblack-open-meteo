@@ -3,7 +3,7 @@
 from datetime import date, datetime
 from typing import Literal, Mapping, Optional, Sequence, Tuple, Union
 
-from .types import (
+from ..types import (
     CellSelection,
     Coordinate,
     Number,
@@ -12,7 +12,7 @@ from .types import (
     TimeFormat,
     WindSpeedUnit
 )
-from .utils import (
+from ..utils import (
     ensure_sequence,
     optional_date_to_param,
     optional_datetime_to_param,
