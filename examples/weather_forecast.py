@@ -3,10 +3,12 @@
 import httpx
 import pandas as pd
 
-from jetblack_open_meteo import prepare_weather_forecast_request
+from jetblack_open_meteo.weather_forecast import (
+    prepare_weather_forecast_request,
+)
 
 
-def main() -> None:
+def generic() -> None:
     url, params = prepare_weather_forecast_request(
         (51.50242846391432, -0.1423227420691731),
         hourly=['temperature_2m'],
@@ -18,4 +20,4 @@ def main() -> None:
 
 
 if __name__ == '__main__':
-    main()
+    generic()

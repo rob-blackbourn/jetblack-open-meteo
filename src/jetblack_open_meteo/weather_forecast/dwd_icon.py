@@ -62,7 +62,26 @@ Hourly = Literal[
     'soil_moisture_1_to_3cm',
     'soil_moisture_3_to_9cm',
     'soil_moisture_9_to_27cm',
-    'soil_moisture_27_to_81cm'
+    'soil_moisture_27_to_81cm',
+    # Additional Variables.
+    'is_day',
+    'lightning_potential',
+    'updraft',
+    'cape',
+    'freezing_level_height',
+    'snowfall_height',
+    'sunshine_duration',
+    # Solar radiation variables
+    'shortwave_radiation',
+    'direct_radiation',
+    'diffuse_radiation',
+    'direct_normal_irradiance',
+    'terrestrial_radiation',
+    'shortwave_radiation_instant',
+    'direct_radiation_instant',
+    'diffuse_radiation_instant',
+    'direct_normal_irradiance_instant',
+    'terrestrial_radiation_instant'
 ]
 
 Minutely15 = Literal[
