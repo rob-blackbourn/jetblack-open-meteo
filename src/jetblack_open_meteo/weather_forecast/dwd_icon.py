@@ -141,6 +141,39 @@ Current = Literal[
     'wind_gusts_10m'
 ]
 
+PressureLevel = Literal[
+    '1000hPa',
+    '975hPa',
+    '950hPa',
+    '925hPa',
+    '900hPa',
+    '850hPa',
+    '800hPa',
+    '700hPa',
+    '600hPa',
+    '500hPa',
+    '400hPa',
+    '300hPa',
+    '250hPa',
+    '200hPa',
+    '150hPa',
+    '100hPa',
+    '70hPa',
+    '50hPa',
+    '30hPa'
+]
+
+PressureVariable = Literal[
+    'temperature',
+    'relative_humidity',
+    'cloud_cover',
+    'windspeed',
+    'winddirection',
+    'geopotential_height'
+]
+
+Pressure = Tuple[PressureVariable, PressureLevel]
+
 
 def prepare_dwd_icon_request(
         coordinate: Union[Coordinate, Sequence[Coordinate]],
