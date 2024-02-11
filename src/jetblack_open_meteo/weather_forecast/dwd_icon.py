@@ -1,7 +1,16 @@
 """DWD Germany"""
 
 from datetime import date, datetime
-from typing import Literal, Mapping, Optional, Sequence, Tuple, Union
+from typing import (
+    List,
+    Literal,
+    Mapping,
+    Optional,
+    Sequence,
+    Tuple,
+    Union,
+    cast
+)
 
 from ..types import (
     CellSelection,
@@ -179,6 +188,7 @@ def prepare_dwd_icon_request(
         coordinate: Union[Coordinate, Sequence[Coordinate]],
         elevation: Optional[Number] = None,
         hourly: Optional[Sequence[Hourly]] = None,
+        pressure: Optional[Sequence[Pressure]] = None,
         minutely_15: Optional[Sequence[Minutely15]] = None,
         daily: Optional[Sequence[Daily]] = None,
         current: Optional[Sequence[Current]] = None,
@@ -206,11 +216,19 @@ def prepare_dwd_icon_request(
 
     coordinate = ensure_sequence(coordinate)
 
+    variables = cast(List[str], list(hourly) if hourly else [])
+
+    if pressure:
+        variables += [
+            f'{pressure_type}_{pressure_level}'
+            for pressure_type, pressure_level in pressure
+        ]
+
     params = remove_none_from_dict({
         'latitude': ','.join([str(latitude) for latitude, _ in coordinate]),
         'longitude': ','.join([str(longitude) for _, longitude in coordinate]),
         'elevation': optional_number_to_param(elevation),
-        'hourly': optional_string_array_to_param(hourly),
+        'hourly': optional_string_array_to_param(variables if variables else None),
         'minutely_15': optional_string_array_to_param(minutely_15),
         'daily': optional_string_array_to_param(daily),
         'current': optional_string_array_to_param(current),
