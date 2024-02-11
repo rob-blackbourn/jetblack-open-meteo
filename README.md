@@ -2,6 +2,10 @@
 
 A client API for [open-meteo](https://open-meteo.com).
 
+## Status
+
+This is work in progress.
+
 ## Usage
 
 Rather than provide a client, this library provides the url and params.
